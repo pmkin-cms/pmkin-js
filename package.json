@@ -30,10 +30,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pmkin/pmkin-js.git"
+    "url": "git+https://github.com/pmkin-cms/pmkin-js.git"
   },
   "bugs": {
-    "url": "https://github.com/pmkin/pmkin-js/issues"
+    "url": "https://github.com/pmkin-cms/pmkin-js/issues"
   },
   "homepage": "https://pmkin.io/developers/docs/introduction",
   "engines": {
