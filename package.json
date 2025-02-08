@@ -1,6 +1,6 @@
 {
   "name": "pmkin",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "Christoffer Artmann <Artgaard@gmail.com>",
   "license": "MIT",
   "description": "A TypeScript SDK for interacting with the PMKIN headless CMS.",
