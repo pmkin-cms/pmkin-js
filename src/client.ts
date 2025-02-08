@@ -62,11 +62,18 @@ interface ListDocumentsResponse {
   documents: DocumentListing[]
 }
 
+interface PmkinClientOptions {
+  token: string
+}
+
 export class PmkinClient {
   private readonly apiClient: ApiClient
 
-  constructor(token: string) {
-    this.apiClient = new ApiClient('https://content.pmkin.io/graphql', token)
+  constructor(options: PmkinClientOptions) {
+    this.apiClient = new ApiClient(
+      'https://content.pmkin.io/graphql',
+      options.token
+    )
   }
 
   async findCategory(id: string): Promise<Category | undefined> {

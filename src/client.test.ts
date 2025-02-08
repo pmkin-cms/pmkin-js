@@ -18,7 +18,9 @@ describe('PmkinClient', () => {
         slug: 'category-1'
       }
 
-      const client = new PmkinClient('test-token')
+      const client = new PmkinClient({
+        token: 'cdab90b977514c4ea3e66a054b4a7c65'
+      })
 
       // @ts-ignore - Accessing private property for testing
       client.apiClient.request.mockResolvedValue({ category: mockCategory })
@@ -31,7 +33,9 @@ describe('PmkinClient', () => {
     })
 
     it('should return undefined when category is not found.', async () => {
-      const client = new PmkinClient('test-token')
+      const client = new PmkinClient({
+        token: 'cdab90b977514c4ea3e66a054b4a7c65'
+      })
 
       // @ts-ignore - Accessing private property for testing
       client.apiClient.request.mockResolvedValue({ category: null })
@@ -64,7 +68,9 @@ describe('PmkinClient', () => {
         title: 'Local Festivals Around the World You Can’t Miss'
       }
 
-      const client = new PmkinClient('test-token')
+      const client = new PmkinClient({
+        token: 'cdab90b977514c4ea3e66a054b4a7c65'
+      })
 
       // @ts-ignore - Accessing private property for testing
       client.apiClient.request.mockResolvedValue({ document: mockDocument })
@@ -95,7 +101,9 @@ describe('PmkinClient', () => {
         title: 'Local Festivals Around the World You Can’t Miss'
       }
 
-      const client = new PmkinClient('test-token')
+      const client = new PmkinClient({
+        token: 'cdab90b977514c4ea3e66a054b4a7c65'
+      })
 
       // @ts-ignore - Accessing private property for testing
       client.apiClient.request.mockResolvedValue({
@@ -127,7 +135,9 @@ describe('PmkinClient', () => {
         }
       ]
 
-      const client = new PmkinClient('test-token')
+      const client = new PmkinClient({
+        token: 'cdab90b977514c4ea3e66a054b4a7c65'
+      })
 
       // @ts-ignore - Accessing private property for testing
       client.apiClient.request.mockResolvedValue({ categories: mockCategories })
@@ -138,7 +148,9 @@ describe('PmkinClient', () => {
     })
 
     it('should throw error when response is invalid.', async () => {
-      const client = new PmkinClient('test-token')
+      const client = new PmkinClient({
+        token: 'cdab90b977514c4ea3e66a054b4a7c65'
+      })
 
       // @ts-ignore - Accessing private property for testing
       client.apiClient.request.mockResolvedValue(null)
@@ -182,7 +194,9 @@ describe('PmkinClient', () => {
         }
       ]
 
-      const client = new PmkinClient('test-token')
+      const client = new PmkinClient({
+        token: 'cdab90b977514c4ea3e66a054b4a7c65'
+      })
 
       // @ts-ignore - Accessing private property for testing
       client.apiClient.request.mockResolvedValue({ documents: mockDocuments })
