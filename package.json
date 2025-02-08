@@ -1,0 +1,54 @@
+{
+  "name": "pmkin",
+  "version": "1.0.0",
+  "author": "Christoffer Artmann <Artgaard@gmail.com>",
+  "license": "MIT",
+  "description": "A TypeScript SDK for interacting with the PMKIN headless CMS.",
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "format": "prettier --write .",
+    "prepublishOnly": "bun run build",
+    "test": "vitest",
+    "typecheck": "tsc"
+  },
+  "keywords": [
+    "pmkin",
+    "headless cms",
+    "cms",
+    "sdk",
+    "typescript",
+    "graphql"
+  ],
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pmkin/pmkin-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pmkin/pmkin-js/issues"
+  },
+  "homepage": "https://pmkin.io/developers/docs/introduction",
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "graphql": "^16.10.0",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.1",
+    "dotenv": "^16.4.7",
+    "prettier": "^3.4.2",
+    "tsup": "^8.3.6",
+    "typescript": "^5.0.0",
+    "vitest": "^3.0.5"
+  }
+}
