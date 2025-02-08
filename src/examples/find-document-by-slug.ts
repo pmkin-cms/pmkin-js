@@ -11,7 +11,7 @@ async function main() {
     throw new Error('PMKIN_TOKEN is required')
   }
 
-  const client = new PmkinClient(token)
+  const client = new PmkinClient({ token })
 
   const document = await client.findDocumentBySlug(
     'beyond-the-beaten-path:-discovering-hidden-gems-in-barcelona'

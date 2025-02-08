@@ -11,7 +11,7 @@ async function main() {
     throw new Error('PMKIN_TOKEN is required')
   }
 
-  const client = new PmkinClient(token)
+  const client = new PmkinClient({ token })
 
   const category = await client.findCategory('673345e140869c00233ad8c9')
 

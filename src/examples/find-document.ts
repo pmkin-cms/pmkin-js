@@ -11,7 +11,7 @@ async function main() {
     throw new Error('PMKIN_TOKEN is required')
   }
 
-  const client = new PmkinClient(token)
+  const client = new PmkinClient({ token })
 
   const document = await client.findDocument('6733460e40869c00233ad8cc')
 
