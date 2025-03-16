@@ -17,6 +17,7 @@ export interface DocumentListing {
   coverImage: {
     url: string
   }
+  excerpt: string
   id: string
   isPublished: boolean
   metaDescription: string
@@ -30,6 +31,7 @@ export interface Document {
   coverImage: {
     url: string
   }
+  excerpt: string
   html: string
   id: string
   isPublished: boolean
@@ -130,6 +132,7 @@ export class PmkinClient {
           coverImage {
             url
           }
+          excerpt
           html
           id
           isPublished
@@ -162,6 +165,7 @@ export class PmkinClient {
           coverImage {
             url
           }
+          excerpt
           html
           id
           isPublished
@@ -197,6 +201,7 @@ export class PmkinClient {
           coverImage {
             url
           }
+          excerpt
           id
           isPublished
           metaDescription
