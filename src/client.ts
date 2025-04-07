@@ -14,6 +14,12 @@ export interface Category {
 }
 
 export interface DocumentListing {
+  category?: {
+    id: string
+    description: string
+    name: string
+    slug: string
+  }
   coverImage: {
     url: string
   }
@@ -28,6 +34,12 @@ export interface DocumentListing {
   title: string
 }
 export interface Document {
+  category?: {
+    id: string
+    description: string
+    name: string
+    slug: string
+  }
   coverImage: {
     url: string
   }
@@ -116,7 +128,7 @@ export class PmkinClient {
     const response = await this.apiClient.request<ListCategoriesResponse>(query)
 
     if (!response || response.categories == undefined) {
-      throw new InvalidResponseErrror(
+      throw new InvalidResponseError(
         'The response is undefined or empty.',
         response
       )
@@ -129,6 +141,12 @@ export class PmkinClient {
     const query = `
       query FindDocument($id: ID!) {
         document(id: $id) {
+          category {
+            id
+            description
+            name
+            slug
+          }
           coverImage {
             url
           }
@@ -162,6 +180,12 @@ export class PmkinClient {
     const query = `
       query FindDocumentBySlug($slug: String!) {
         documentBySlug(slug: $slug) {
+          category {
+            id
+            description
+            name
+            slug
+          }
           coverImage {
             url
           }
@@ -198,6 +222,12 @@ export class PmkinClient {
     const query = `
       query {
         documents {
+          category {
+            id
+            description
+            name
+            slug
+          }
           coverImage {
             url
           }
@@ -217,7 +247,7 @@ export class PmkinClient {
     const response = await this.apiClient.request<ListDocumentsResponse>(query)
 
     if (!response || response.documents == undefined) {
-      throw new InvalidResponseErrror(
+      throw new InvalidResponseError(
         'The response is undefined or empty.',
         response
       )
@@ -227,7 +257,7 @@ export class PmkinClient {
   }
 }
 
-export class InvalidResponseErrror extends Error {
+export class InvalidResponseError extends Error {
   public readonly response: any
 
   constructor(message: string, response: any) {
