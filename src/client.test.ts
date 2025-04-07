@@ -51,6 +51,12 @@ describe('PmkinClient', () => {
   describe('findDocument', () => {
     it('should return a document.', async () => {
       const mockDocument = {
+        category: {
+          id: 'c58b1646-94b7-4baf-b9cb-1c40d47284ac',
+          name: 'Travel Guides',
+          description: 'Travel tips and destination guides',
+          slug: 'travel-guides'
+        },
         coverImage: {
           url: 'https://i.imgur.com/CoFbsRz.png'
         },
@@ -85,6 +91,12 @@ describe('PmkinClient', () => {
   describe('findDocumentBySlug', () => {
     it('should return a document.', async () => {
       const mockDocument = {
+        category: {
+          id: 'c58b1646-94b7-4baf-b9cb-1c40d47284ac',
+          name: 'Travel Guides',
+          description: 'Travel tips and destination guides',
+          slug: 'travel-guides'
+        },
         coverImage: {
           url: 'https://i.imgur.com/CoFbsRz.png'
         },
@@ -167,6 +179,12 @@ describe('PmkinClient', () => {
     it('should return a list of documents.', async () => {
       const mockDocuments = [
         {
+          category: {
+            id: 'c58b1646-94b7-4baf-b9cb-1c40d47284ac',
+            name: 'Travel Guides',
+            description: 'Travel tips and destination guides',
+            slug: 'travel-guides'
+          },
           coverImage: {
             url: 'https://i.imgur.com/CoFbsRz.png'
           },
@@ -182,6 +200,12 @@ describe('PmkinClient', () => {
           title: 'Local Festivals Around the World You Can’t Miss'
         },
         {
+          category: {
+            id: '35b5d294-608e-42c6-91fa-849e140df8ce',
+            name: 'Solo Travel',
+            description: 'Solo traveler guides and tips',
+            slug: 'solo-travel'
+          },
           coverImage: {
             url: 'https://i.imgur.com/JeXYgsd.png'
           },
