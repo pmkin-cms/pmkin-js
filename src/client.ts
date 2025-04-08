@@ -76,6 +76,10 @@ interface ListDocumentsResponse {
   documents: DocumentListing[]
 }
 
+interface ListDocumentsInCategoryResponse {
+  documentsInCategory: DocumentListing[]
+}
+
 interface PmkinClientOptions {
   token: string
 }
@@ -254,6 +258,47 @@ export class PmkinClient {
     }
 
     return response.documents ?? []
+  }
+
+  async listDocumentsInCategory(categoryId: string, includeDrafts?: boolean): Promise<DocumentListing[]> {
+    const query = `
+      query ListDocumentsInCategory($categoryId: ID!, $includeDrafts: Boolean) {
+        documentsInCategory(categoryId: $categoryId, includeDrafts: $includeDrafts) {
+          category {
+            id
+            description
+            name
+            slug
+          }
+          coverImage {
+            url
+          }
+          excerpt
+          id
+          isPublished
+          metaDescription
+          metaTitle
+          publishedAt
+          slug
+          subtitle
+          title
+        }
+      }
+    `
+
+    const response = await this.apiClient.request<ListDocumentsInCategoryResponse>(query, {
+      categoryId,
+      includeDrafts
+    })
+
+    if (!response || response.documentsInCategory == undefined) {
+      throw new InvalidResponseError(
+        'The response is undefined or empty.',
+        response
+      )
+    }
+
+    return response.documentsInCategory
   }
 }
 

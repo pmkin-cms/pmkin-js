@@ -178,8 +178,12 @@ const client = new PmkinClient({
 const posts = await client.listDocuments()
 // Returns: DocumentListing[]
 
+// List all documents in a specific category
+const posts = await client.listDocumentsInCategory('c58b1646-94b7-4baf-b9cb-1c40d47284ac', true) // Second parameter is optional includeDrafts flag
+// Returns: DocumentListing[]
+
 // Find document by ID
-const post = await client.findDocument('123')
+const post = await client.findDocument('6733466740869c00233ad8dd')
 // Returns: Document | undefined
 
 // Find document by slug
@@ -195,6 +199,6 @@ const categories = await client.listCategories()
 // Returns: CategoryListing[]
 
 // Find category by ID
-const category = await client.findCategory('123')
+const category = await client.findCategory('c58b1646-94b7-4baf-b9cb-1c40d47284ac')
 // Returns: Category | undefined
 ```
