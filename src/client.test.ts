@@ -233,4 +233,77 @@ describe('PmkinClient', () => {
       expect(result).toEqual(mockDocuments)
     })
   })
+
+  describe('listDocumentsInCategory', () => {
+    it('should return a list of documents in a category.', async () => {
+      const categoryId = 'c58b1646-94b7-4baf-b9cb-1c40d47284ac'
+      const mockDocuments = [
+        {
+          category: {
+            id: 'c58b1646-94b7-4baf-b9cb-1c40d47284ac',
+            name: 'Travel Guides',
+            description: 'Travel tips and destination guides',
+            slug: 'travel-guides'
+          },
+          coverImage: {
+            url: 'https://i.imgur.com/CoFbsRz.png'
+          },
+          excerpt: `From the vibrant color explosions of India's Holi to the intricate ice sculptures of Harbin, local festivals offer travelers the rare opportunity to experience culture at its most authentic.`,
+          id: '6733466740869c00233ad8dd',
+          isPublished: true,
+          metaDescription: "Experience vibrant local culture through the world's most unique festivals.",
+          metaTitle: null,
+          publishedAt: '2024-11-24T15:05:08.874Z',
+          slug: "local-festivals-around-the-world-you-cant-miss",
+          subtitle: null,
+          title: 'Local Festivals Around the World You Cannot Miss'
+        },
+        {
+          category: {
+            id: 'c58b1646-94b7-4baf-b9cb-1c40d47284ac',
+            name: 'Travel Guides',
+            description: 'Travel tips and destination guides',
+            slug: 'travel-guides'
+          },
+          coverImage: {
+            url: 'https://i.imgur.com/fG5aTs7.png'
+          },
+          excerpt: 'Discover the hidden gems of Paris beyond the Eiffel Tower.',
+          id: '5822466740869c00233ad8ee',
+          isPublished: true,
+          metaDescription: 'Explore the lesser-known attractions of Paris.',
+          metaTitle: null,
+          publishedAt: '2024-10-15T10:30:00.000Z',
+          slug: 'hidden-gems-of-paris',
+          subtitle: null,
+          title: 'Hidden Gems of Paris'
+        }
+      ]
+
+      const client = new PmkinClient({
+        token: 'cdab90b977514c4ea3e66a054b4a7c65'
+      })
+
+      // @ts-ignore - Accessing private property for testing
+      client.apiClient.request.mockResolvedValue({ documentsInCategory: mockDocuments })
+
+      const result = await client.listDocumentsInCategory(categoryId)
+
+      expect(result).toEqual(mockDocuments)
+    })
+
+    it('should throw error when response is invalid.', async () => {
+      const categoryId = 'c58b1646-94b7-4baf-b9cb-1c40d47284ac'
+      const client = new PmkinClient({
+        token: 'cdab90b977514c4ea3e66a054b4a7c65'
+      })
+
+      // @ts-ignore - Accessing private property for testing
+      client.apiClient.request.mockResolvedValue(null)
+
+      await expect(client.listDocumentsInCategory(categoryId)).rejects.toThrow(
+        'The response is undefined or empty.'
+      )
+    })
+  })
 })
